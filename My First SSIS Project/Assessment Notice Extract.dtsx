@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Assessment Notice Extract"
   DTS:PackageType="5"
-  DTS:VersionBuild="60"
-  DTS:VersionGUID="{0AAB0FEC-C8D7-4CA9-8CAC-B413B4142FB7}">
+  DTS:VersionBuild="62"
+  DTS:VersionGUID="{7CC369DB-D17A-485A-8951-4B36F063CBA9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -101,15 +101,6 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{156C0DCF-0339-4329-8CE9-C33DF52F5FCE}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="AreaCode">
-      <DTS:VariableValue
-        DTS:DataType="8">01</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
       DTS:DTSID="{5C4BCF64-59EA-465C-96A9-7DEBF592A66F}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[User::FooterZeroPad]  + @[User::strNumofLines]"
@@ -160,15 +151,6 @@
       DTS:ObjectName="NumberOfRows">
       <DTS:VariableValue
         DTS:DataType="3">0</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{5E943980-BBC7-4298-8864-979176D32798}"
-      DTS:IncludeInDebugDump="6789"
-      DTS:Namespace="User"
-      DTS:ObjectName="RollYear">
-      <DTS:VariableValue
-        DTS:DataType="3">2018</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1464,7 +1446,7 @@ SELECT @HeaderVar AS [HEADER];</property>
         <NodeLayout
           Size="156,42"
           Id="Package\Data Flow Task Detail\Data Conversion"
-          TopLeft="97,163" />
+          TopLeft="132,164" />
         <NodeLayout
           Size="130,42"
           Id="Package\Data Flow Task Detail\Row Count"
@@ -1475,26 +1457,26 @@ SELECT @HeaderVar AS [HEADER];</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="17,24"
+              EndConnector="52,25"
               Start="0,0"
-              End="17,16.5">
+              End="52,17.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8" />
+                    End="0,8.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,8"
-                    Point2="0,12"
-                    Point3="4,12" />
+                    Point1="0,8.5"
+                    Point2="0,12.5"
+                    Point3="4,12.5" />
                   <mssgle:LineSegment
-                    End="13,12" />
+                    End="48,12.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="13,12"
-                    Point2="17,12"
-                    Point3="17,16" />
+                    Point1="48,12.5"
+                    Point2="52,12.5"
+                    Point3="52,16.5" />
                   <mssgle:LineSegment
-                    End="17,16.5" />
+                    End="52,17.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1539,30 +1521,30 @@ SELECT @HeaderVar AS [HEADER];</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task Detail.Paths[Data Conversion Output]"
-          TopLeft="175,205">
+          TopLeft="210,206">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="79,37"
+              EndConnector="44,36"
               Start="0,0"
-              End="79,29.5">
+              End="44,28.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14.5" />
+                    End="0,14" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,14.5"
-                    Point2="0,18.5"
-                    Point3="4,18.5" />
+                    Point1="0,14"
+                    Point2="0,18"
+                    Point3="4,18" />
                   <mssgle:LineSegment
-                    End="75,18.5" />
+                    End="40,18" />
                   <mssgle:CubicBezierSegment
-                    Point1="75,18.5"
-                    Point2="79,18.5"
-                    Point3="79,22.5" />
+                    Point1="40,18"
+                    Point2="44,18"
+                    Point3="44,22" />
                   <mssgle:LineSegment
-                    End="79,29.5" />
+                    End="44,28.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
