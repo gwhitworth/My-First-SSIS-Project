@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Assessment Notice Extract"
   DTS:PackageType="5"
-  DTS:VersionBuild="85"
-  DTS:VersionGUID="{26945A3F-7D6E-4873-9BFD-B996AECAD71F}">
+  DTS:VersionBuild="90"
+  DTS:VersionGUID="{43697713-B69C-405F-8569-837D196D31DA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -139,7 +139,18 @@
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Data Flow Task Detail">
-      <DTS:Variables />
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="First txt for each detail line"
+          DTS:DTSID="{488A9C88-A9E2-49C4-B1EA-6BE1FF442005}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="DetailLineId">
+          <DTS:VariableValue
+            DTS:DataType="8">BCA00020</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -298,10 +309,10 @@
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">DECLARE @RollYear [INT]= ?;
 DECLARE @AreaCode VARCHAR(2)= ?;
 DECLARE @JurCode VARCHAR(3)= ?;
-DECLARE @NCode VARCHAR(6)= '213108';
+DECLARE @NCode VARCHAR(6)= ?;
 DECLARE @AUCode VARCHAR(3)= '000';
 DECLARE @MCCode VARCHAR(4)= '0140';
-DECLARE @RptId CHAR(8)= 'BCA00020';
+DECLARE @RptId CHAR(8)= ?;
 DECLARE @RunName VARCHAR(30)= 'Standard Notice';
 DECLARE @RunId VARCHAR(30)= CONCAT(@RollYear + 1, ' Completed');
 DECLARE @DetailVar VARCHAR(MAX)= '';
@@ -532,7 +543,7 @@ ORDER BY [Area Code],[JUR_CODE],[Roll Number];</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{928DA147-F190-4F95-9959-290BAA095485};"Parameter1:Input",{9A51BA3A-191D-46FE-9F4D-83B37ADD514C};"Parameter2:Input",{AA582039-AC87-48FB-92F6-7095A4DE565D};</property>
+                  name="ParameterMapping">"Parameter0:Input",{928DA147-F190-4F95-9959-290BAA095485};"Parameter1:Input",{9A51BA3A-191D-46FE-9F4D-83B37ADD514C};"Parameter2:Input",{AA582039-AC87-48FB-92F6-7095A4DE565D};"Parameter3:Input",{3FCF5EF8-B35C-41EA-B454-DF83B0C0FDEC};"Parameter4:Input",{488A9C88-A9E2-49C4-B1EA-6BE1FF442005};</property>
               </properties>
               <connections>
                 <connection
@@ -1228,7 +1239,7 @@ SELECT @FooterVar AS [FOOTER]</property>
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">DECLARE @RollYear [INT]= ?;
-DECLARE @RptId CHAR(8)= 'BCA00010';
+DECLARE @RptId CHAR(8)= ?;
 DECLARE @RunName VARCHAR(30)= ?;
 DECLARE @RunId VARCHAR(30)= CONCAT(@RollYear + 1, ' Completed');
 DECLARE @HeaderVar VARCHAR(MAX)= @RptId;
@@ -1265,7 +1276,7 @@ SELECT @HeaderVar AS [HEADER];</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{928DA147-F190-4F95-9959-290BAA095485};"Parameter1:Input",{F079E81C-D32C-4501-BAAB-4E1EA03ECDC1};</property>
+                  name="ParameterMapping">"Parameter0:Input",{928DA147-F190-4F95-9959-290BAA095485};"Parameter1:Input",{00B45912-E911-4E8F-B3DA-363FB1736BD1};"Parameter2:Input",{F079E81C-D32C-4501-BAAB-4E1EA03ECDC1};</property>
               </properties>
               <connections>
                 <connection
@@ -1600,7 +1611,7 @@ SELECT @HeaderVar AS [HEADER];</property>
         <NodeLayout
           Size="172,42"
           Id="Package\Data Flow Task Footer\Flat File Destination"
-          TopLeft="8,222" />
+          TopLeft="114,200" />
         <NodeLayout
           Size="150,42"
           Id="Package\Data Flow Task Footer\OLE DB Source"
@@ -1608,21 +1619,33 @@ SELECT @HeaderVar AS [HEADER];</property>
         <NodeLayout
           Size="156,42"
           Id="Package\Data Flow Task Footer\Data Conversion"
-          TopLeft="19,96" />
+          TopLeft="83,93" />
         <EdgeLayout
           Id="Package\Data Flow Task Footer.Paths[OLE DB Source Output]"
-          TopLeft="94.75,43.5">
+          TopLeft="92.5,43.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,52.5"
+              EndConnector="68.5,49.5"
               Start="0,0"
-              End="0,45">
+              End="68.5,42">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45" />
+                    End="0,20.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.75"
+                    Point2="0,24.75"
+                    Point3="4,24.75" />
+                  <mssgle:LineSegment
+                    End="64.5,24.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="64.5,24.75"
+                    Point2="68.5,24.75"
+                    Point3="68.5,28.75" />
+                  <mssgle:LineSegment
+                    End="68.5,42" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1633,18 +1656,30 @@ SELECT @HeaderVar AS [HEADER];</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task Footer.Paths[Data Conversion Output]"
-          TopLeft="95.5,138">
+          TopLeft="161,135">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,84"
+              EndConnector="39,65"
               Start="0,0"
-              End="0,76.5">
+              End="39,57.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,76.5" />
+                    End="0,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5"
+                    Point2="0,32.5"
+                    Point3="4,32.5" />
+                  <mssgle:LineSegment
+                    End="35,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35,32.5"
+                    Point2="39,32.5"
+                    Point3="39,36.5" />
+                  <mssgle:LineSegment
+                    End="39,57.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
