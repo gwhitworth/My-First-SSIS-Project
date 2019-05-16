@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">BCAD35</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATk2EcHD1bUOEfKg7qQIZYgAAAAACAAAAAAADZgAAwAAAABAAAABfhjgyTegSKQyLIjzqeaHiAAAAAASAAACgAAAAEAAAAOhsHhU/dVKeR1HWAaLVER+IAAAAQERyflJZpfO/9PdvKlAEITHdgclTRuq9lfOu9DefgrrlVlKxfKQz64bveuyUvP0knqTINXLPWNV1GOSEq8WwEYhXxpUsvbVY8vCh3pBEuX4lJol90hmgPufXw8NzzhHqZ4dNGHl1o95bZRXrHYii3ld3PSjlMjtgTgGruTus0C67GwVDHG330RQAAACAgDLL15ARvhrpcvIjObDHQDjoiA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATk2EcHD1bUOEfKg7qQIZYgAAAAACAAAAAAADZgAAwAAAABAAAADuuHdAcH96NtVG2sQ6SweTAAAAAASAAACgAAAAEAAAAEuCqSEO8O+Fe6wtOyCZQqCIAAAA7liPsR/Yci+L2oZj0JvxkgkRIzOYszXZ1FPQQHm0cwxwoJ45K74xDMRH+FRPDnAO0/MGXgYv6IaA78VuSaB0/l2OUKawO1tOZ0akuXJsUYDA3UWuDgT5Lcnn/TuDuSudS1wYSY/zpw/Xzm61oMgBl2Pf5YqLXcqPZ5xCDmiiDArjq3uEEE59PhQAAACx6Lj8L4ESzVrbNW6IaLslPnzSMQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -60,10 +60,10 @@
                 <SSIS:Property SSIS:Name="Name">Assessment Notice Extract</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">60</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">66</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{0AAB0FEC-C8D7-4CA9-8CAC-B413B4142FB7}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{B4BEB3AB-E9A3-413B-97D3-824AB9DB9A28}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -81,6 +81,20 @@
                     <SSIS:Property SSIS:Name="Required">1</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Value">01</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="HeaderLineId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{00B45912-16EE-4E8F-B3DA-363FB1736BD1}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">BCA00010</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -124,6 +138,20 @@
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Value">2018</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="RunName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{F079E81C-2CD3-4501-BAAB-4E1EA03ECDC1}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Standard Notice</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="CM.bcad24,51000.EDW.ConnectionString">
@@ -404,7 +432,7 @@
           <ConfigurationSetting>
             <Id>LastModifiedTime</Id>
             <Name>LastModifiedTime</Name>
-            <Value xsi:type="xsd:dateTime">2019-05-16T22:01:17.2807278Z</Value>
+            <Value xsi:type="xsd:dateTime">2019-05-16T22:30:21.3806142Z</Value>
           </ConfigurationSetting>
           <ConfigurationSetting>
             <Id>{928DA147-0E6F-4F95-9959-290BAA095485}</Id>
@@ -425,6 +453,16 @@
             <Id>{3FCF5EF8-4CA3-41EA-B454-DF83B0C0FDEC}</Id>
             <Name>Assessment Notice Extract::NeighCode</Name>
             <Value xsi:type="xsd:string">213108</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{F079E81C-2CD3-4501-BAAB-4E1EA03ECDC1}</Id>
+            <Name>Assessment Notice Extract::RunName</Name>
+            <Value xsi:type="xsd:string">Standard Notice</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{00B45912-16EE-4E8F-B3DA-363FB1736BD1}</Id>
+            <Name>Assessment Notice Extract::HeaderLineId</Name>
+            <Value xsi:type="xsd:string">BCA00010</Value>
           </ConfigurationSetting>
         </ParameterConfigurationValues>
       </Options>

@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Assessment Notice Extract"
   DTS:PackageType="5"
-  DTS:VersionBuild="62"
-  DTS:VersionGUID="{7CC369DB-D17A-485A-8951-4B36F063CBA9}">
+  DTS:VersionBuild="82"
+  DTS:VersionGUID="{E092CA69-1456-49AF-AE6D-149E3D98AEA9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -70,6 +70,16 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
+      DTS:DTSID="{00B45912-16EE-4E8F-B3DA-363FB1736BD1}"
+      DTS:ObjectName="HeaderLineId"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">BCA00010</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
       DTS:DTSID="{AA582039-5378-48FB-92F6-7095A4DE565D}"
       DTS:ObjectName="JurCode"
       DTS:Required="True">
@@ -97,52 +107,18 @@
         DTS:DataType="3"
         DTS:Name="ParameterValue">2018</DTS:Property>
     </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{F079E81C-2CD3-4501-BAAB-4E1EA03ECDC1}"
+      DTS:ObjectName="RunName"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Standard Notice</DTS:Property>
+    </DTS:PackageParameter>
   </DTS:PackageParameters>
   <DTS:Variables>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{5C4BCF64-59EA-465C-96A9-7DEBF592A66F}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[User::FooterZeroPad]  + @[User::strNumofLines]"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="FooterLineCount">
-      <DTS:VariableValue
-        DTS:DataType="8">000000002</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{DC8E75BC-4F0D-44D2-B57E-7781B3ABB7A3}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[User::FooterZeroPad]  +  @[User::strNumOfRows]"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="FooterRowCount">
-      <DTS:VariableValue
-        DTS:DataType="8">000000000</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{190EE326-BCAA-4078-A559-C5093F90FB66}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="REPLICATE( &quot;0&quot;, 9-LEN( @[User::strNumOfRows] ) )"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="FooterZeroPad">
-      <DTS:VariableValue
-        DTS:DataType="8">00000000</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{C940E589-5A80-449F-B678-8D4037B76D0B}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[User::NumberOfRows] + 2"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="NumberOfLines">
-      <DTS:VariableValue
-        DTS:DataType="3">2</DTS:VariableValue>
-    </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{AFAF6622-45EF-4B36-944E-49F0E3773B7A}"
@@ -151,28 +127,6 @@
       DTS:ObjectName="NumberOfRows">
       <DTS:VariableValue
         DTS:DataType="3">0</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{65391AE0-8EE5-4548-A99F-967EC33B6ACB}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="(DT_WSTR, 5)  @[User::NumberOfLines]"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="strNumofLines">
-      <DTS:VariableValue
-        DTS:DataType="8">2</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{B6845974-89C7-47E8-9039-070A9216C055}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="(DT_WSTR, 5) @[User::NumberOfRows]"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="strNumOfRows">
-      <DTS:VariableValue
-        DTS:DataType="8">0</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -771,7 +725,74 @@ ORDER BY [Area Code],[JUR_CODE],[Roll Number];</property>
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Data Flow Task Footer">
-      <DTS:Variables />
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{4951F886-BA8E-486C-903C-5096A4533C46}"
+          DTS:EvaluateAsExpression="True"
+          DTS:Expression="@[User::FooterZeroPad]  + @[User::strNumofLines]"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="FooterLineCount">
+          <DTS:VariableValue
+            DTS:DataType="8">000000002</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{8E08C8A8-FFFB-42F0-A5B7-AEE3B4A92E7A}"
+          DTS:EvaluateAsExpression="True"
+          DTS:Expression="@[User::FooterZeroPad]  +  @[User::strNumOfRows]"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="FooterRowCount">
+          <DTS:VariableValue
+            DTS:DataType="8">000000000</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{B905835C-841F-43B9-936E-1A440927EA35}"
+          DTS:EvaluateAsExpression="True"
+          DTS:Expression="REPLICATE( &quot;0&quot;, 9-LEN( @[User::strNumOfRows] ) )"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="FooterZeroPad">
+          <DTS:VariableValue
+            DTS:DataType="8">00000000</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{0A1FFDC4-5378-451A-A462-017EE6339935}"
+          DTS:EvaluateAsExpression="True"
+          DTS:Expression="@[User::NumberOfRows] + 2"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="NumberOfLines">
+          <DTS:VariableValue
+            DTS:DataType="3">2</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{D3242B73-FA83-4FF6-89F0-C37F21D41B65}"
+          DTS:EvaluateAsExpression="True"
+          DTS:Expression="(DT_WSTR, 5)  @[User::NumberOfLines]"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="strNumofLines">
+          <DTS:VariableValue
+            DTS:DataType="8">2</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{E8DC16B4-441B-4BC5-92F1-41172F1B7D22}"
+          DTS:EvaluateAsExpression="True"
+          DTS:Expression="(DT_WSTR, 5) @[User::NumberOfRows]"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="strNumOfRows">
+          <DTS:VariableValue
+            DTS:DataType="8">0</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -955,7 +976,7 @@ SELECT @FooterVar AS [FOOTER]</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{DC8E75BC-4F0D-44D2-B57E-7781B3ABB7A3};"Parameter1:Input",{5C4BCF64-59EA-465C-96A9-7DEBF592A66F};</property>
+                  name="ParameterMapping">"Parameter0:Input",{8E08C8A8-FFFB-42F0-A5B7-AEE3B4A92E7A};"Parameter1:Input",{4951F886-BA8E-486C-903C-5096A4533C46};</property>
               </properties>
               <connections>
                 <connection
@@ -1201,7 +1222,7 @@ SELECT @FooterVar AS [FOOTER]</property>
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">DECLARE @RollYear [INT]= ?;
 DECLARE @RptId CHAR(8)= 'BCA00010';
-DECLARE @RunName VARCHAR(30)= 'Standard Notice';
+DECLARE @RunName VARCHAR(30)= ?;
 DECLARE @RunId VARCHAR(30)= CONCAT(@RollYear + 1, ' Completed');
 DECLARE @HeaderVar VARCHAR(MAX)= @RptId;
 DECLARE @SpaceNum SMALLINT= 6;
@@ -1237,7 +1258,7 @@ SELECT @HeaderVar AS [HEADER];</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{928DA147-F190-4F95-9959-290BAA095485};</property>
+                  name="ParameterMapping">"Parameter0:Input",{928DA147-F190-4F95-9959-290BAA095485};"Parameter1:Input",{F079E81C-D32C-4501-BAAB-4E1EA03ECDC1};</property>
               </properties>
               <connections>
                 <connection
