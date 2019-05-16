@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Assessment Notice Extract"
   DTS:PackageType="5"
-  DTS:VersionBuild="82"
-  DTS:VersionGUID="{E092CA69-1456-49AF-AE6D-149E3D98AEA9}">
+  DTS:VersionBuild="85"
+  DTS:VersionGUID="{26945A3F-7D6E-4873-9BFD-B996AECAD71F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -121,6 +121,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:Description="Number of Rows read from DS assigned in Detail DF"
       DTS:DTSID="{AFAF6622-45EF-4B36-944E-49F0E3773B7A}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
@@ -728,6 +729,7 @@ ORDER BY [Area Code],[JUR_CODE],[Roll Number];</property>
       <DTS:Variables>
         <DTS:Variable
           DTS:CreationName=""
+          DTS:Description="Number of Lines in File"
           DTS:DTSID="{4951F886-BA8E-486C-903C-5096A4533C46}"
           DTS:EvaluateAsExpression="True"
           DTS:Expression="@[User::FooterZeroPad]  + @[User::strNumofLines]"
@@ -739,6 +741,7 @@ ORDER BY [Area Code],[JUR_CODE],[Roll Number];</property>
         </DTS:Variable>
         <DTS:Variable
           DTS:CreationName=""
+          DTS:Description="Number of Data Rows"
           DTS:DTSID="{8E08C8A8-FFFB-42F0-A5B7-AEE3B4A92E7A}"
           DTS:EvaluateAsExpression="True"
           DTS:Expression="@[User::FooterZeroPad]  +  @[User::strNumOfRows]"
@@ -750,6 +753,7 @@ ORDER BY [Area Code],[JUR_CODE],[Roll Number];</property>
         </DTS:Variable>
         <DTS:Variable
           DTS:CreationName=""
+          DTS:Description="Dynamic depending Number of Rows"
           DTS:DTSID="{B905835C-841F-43B9-936E-1A440927EA35}"
           DTS:EvaluateAsExpression="True"
           DTS:Expression="REPLICATE( &quot;0&quot;, 9-LEN( @[User::strNumOfRows] ) )"
@@ -761,6 +765,7 @@ ORDER BY [Area Code],[JUR_CODE],[Roll Number];</property>
         </DTS:Variable>
         <DTS:Variable
           DTS:CreationName=""
+          DTS:Description="Just adds two to row count for Header and footer"
           DTS:DTSID="{0A1FFDC4-5378-451A-A462-017EE6339935}"
           DTS:EvaluateAsExpression="True"
           DTS:Expression="@[User::NumberOfRows] + 2"
@@ -772,6 +777,7 @@ ORDER BY [Area Code],[JUR_CODE],[Roll Number];</property>
         </DTS:Variable>
         <DTS:Variable
           DTS:CreationName=""
+          DTS:Description="Strings the Number of lines  to be used above"
           DTS:DTSID="{D3242B73-FA83-4FF6-89F0-C37F21D41B65}"
           DTS:EvaluateAsExpression="True"
           DTS:Expression="(DT_WSTR, 5)  @[User::NumberOfLines]"
@@ -783,6 +789,7 @@ ORDER BY [Area Code],[JUR_CODE],[Roll Number];</property>
         </DTS:Variable>
         <DTS:Variable
           DTS:CreationName=""
+          DTS:Description="Strings the Row Count to be used above"
           DTS:DTSID="{E8DC16B4-441B-4BC5-92F1-41172F1B7D22}"
           DTS:EvaluateAsExpression="True"
           DTS:Expression="(DT_WSTR, 5) @[User::NumberOfRows]"
