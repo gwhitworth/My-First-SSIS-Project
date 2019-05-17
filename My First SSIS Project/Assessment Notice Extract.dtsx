@@ -11,51 +11,10 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Assessment Notice Extract"
   DTS:PackageType="5"
-  DTS:VersionBuild="90"
-  DTS:VersionGUID="{43697713-B69C-405F-8569-837D196D31DA}">
+  DTS:VersionBuild="91"
+  DTS:VersionGUID="{FC38662A-463B-4B10-B24E-313A430D8931}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[bcad24,51000.EDW]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{D716093C-A95F-4B22-BD40-EE3A18D74730}"
-      DTS:ObjectName="bcad24,51000.EDW">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=bcad24,51000;Initial Catalog=EDW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
-      DTS:CreationName="FLATFILE"
-      DTS:DTSID="{3D101D50-E5DF-4891-A7E3-E03C27B4FD5F}"
-      DTS:ObjectName="Flat File Connection Manager">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">"H:\\BCA\\BCA_TEST_ANOT_19_STD_" + (DT_STR,4,1252)DATEPART( "yyyy" , getdate() ) + RIGHT("0" + (DT_STR,4,1252)DATEPART( "mm" , getdate() ), 2) + RIGHT("0" + (DT_STR,4,1252)DATEPART( "dd" , getdate() ), 2) +".txt"</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="4105"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="H:\BCA\BCA_TEST_ANOT_19_STD_20190516.txt">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:DataType="302"
-              DTS:TextQualified="True"
-              DTS:ObjectName="DETAIL"
-              DTS:DTSID="{BD9FBA22-1F36-47FF-B335-13990DD3839C}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
@@ -252,8 +211,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task Detail\Flat File Destination.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerID="{3D101D50-E5DF-4891-A7E3-E03C27B4FD5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AssessmentNoticeExtract]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
@@ -548,8 +507,8 @@ ORDER BY [Area Code],[JUR_CODE],[Roll Number];</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task Detail\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[bcad24,51000.EDW]"
-                  connectionManagerRefId="Package.ConnectionManagers[bcad24,51000.EDW]"
+                  connectionManagerID="{D716093C-A95F-4B22-BD40-EE3A18D74730}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DEV EDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -913,8 +872,8 @@ ORDER BY [Area Code],[JUR_CODE],[Roll Number];</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task Footer\Flat File Destination.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerID="{3D101D50-E5DF-4891-A7E3-E03C27B4FD5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AssessmentNoticeExtract]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
@@ -999,8 +958,8 @@ SELECT @FooterVar AS [FOOTER]</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task Footer\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[bcad24,51000.EDW]"
-                  connectionManagerRefId="Package.ConnectionManagers[bcad24,51000.EDW]"
+                  connectionManagerID="{D716093C-A95F-4B22-BD40-EE3A18D74730}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DEV EDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1184,8 +1143,8 @@ SELECT @FooterVar AS [FOOTER]</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task Header\Flat File Destination.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerID="{3D101D50-E5DF-4891-A7E3-E03C27B4FD5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AssessmentNoticeExtract]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
@@ -1281,8 +1240,8 @@ SELECT @HeaderVar AS [HEADER];</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task Header\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[bcad24,51000.EDW]"
-                  connectionManagerRefId="Package.ConnectionManagers[bcad24,51000.EDW]"
+                  connectionManagerID="{D716093C-A95F-4B22-BD40-EE3A18D74730}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DEV EDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
